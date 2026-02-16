@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Desafío - 4 Colores</title>
+    <link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body>
+    <h3>Presiona 'a', 's', 'd' para cambiar el color de este cuadro:</h3>
+    <div id="key">key</div>
+    
+    <h3>Presiona 'q', 'w', 'e' para crear nuevos cuadros:</h3>
+    <div id="container-nuevos"></div>
+
+    <script>
+         // Variable global y eventos de teclado
+        let colorGlobal;
+        const keyDiv = document.getElementById('key');
+
+        function crearNuevoDiv(color) {
+            const nuevoDiv = document.createElement('div');
+            nuevoDiv.style.width = '200px';
+            nuevoDiv.style.height = '200px';
+            nuevoDiv.style.backgroundColor = color;
+            nuevoDiv.style.marginTop = '10px';
+            document.getElementById('container-nuevos').appendChild(nuevoDiv);
+        }
+
+    document.addEventListener('keydown', function (event) {
+            const tecla = event.key.toLowerCase();
+
+        if (tecla === 'a') {
+            colorGlobal = 'pink';
+            keyDiv.style.backgroundColor = colorGlobal;
+        } else if (tecla === 's') {
+            colorGlobal = 'orange';
+            keyDiv.style.backgroundColor = colorGlobal;
+        } else if (tecla === 'd') {
+            colorGlobal = 'skyblue';
+            keyDiv.style.backgroundColor = colorGlobal;
+        } 
+        // q, w, e para crear nuevos divs
+        else if (tecla === 'q') {
+            crearNuevoDiv('purple');
+        } else if (tecla === 'w') {
+            crearNuevoDiv('gray');
+        } else if (tecla === 'e') {
+            crearNuevoDiv('brown');
+        }
+    });
+
+    </script>
+</body>
+</html>
